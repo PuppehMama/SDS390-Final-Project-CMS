@@ -1,0 +1,29 @@
+---
+title: "EDA"
+author: ""
+date: "2024-04-15"
+output: html_document
+---
+```{r}
+library(tidyverse)
+library(broom)
+library(readr)
+cms_hospital <- read_csv("cms_hospital.csv")
+View(cms_hospital)
+```
+```{r}
+ggplot(cms_hospital, aes(x = race, y = LOS, fill = race)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Race", y = "Length of Stay", title = "Length of Stay by Race") +
+  theme_minimal()
+
+```
+
+```{r}
+ggplot(cms_hospital, aes(x = age, y = LOS)) +
+  geom_bar(stat = "identity") +
+  labs(x = "Age", y = "Length of Stay", title = "Length of Stay by Age") +
+  theme_minimal()
+
+```
+
